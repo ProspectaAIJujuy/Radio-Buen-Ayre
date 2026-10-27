@@ -33,7 +33,6 @@
         <div class="max-w-4xl mx-auto flex flex-col items-center">
             <!-- Imagen de Banner Oficial -->
             <div class="w-full max-w-xl mb-4 rounded-xl overflow-hidden neon-glow-orange border-2 border-orange-500/40">
-                <!-- Reemplaza 'banner_buenayre.png' por el nombre exacto de tu archivo de banner si lo subes -->
                 <img src="banner_buenayre.png" alt="Radio Buen Ayre En Vivo 24 HS" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000&auto=format&fit=crop'">
             </div>
             
@@ -87,9 +86,9 @@
                 </a>
             </div>
 
-            <!-- Etiqueta de Stream (Reemplazar URL de Zeno si es necesario) -->
+            <!-- STREAMING URL DE ZENO MEDIA OFICIAL -->
             <audio id="audioStream" preload="none">
-                <source src="https://stream.zeno.fm/tu-streaming-id" type="audio/mpeg">
+                <source src="https://stream.zeno.fm/f3099908182uv" type="audio/mpeg">
                 Tu navegador no soporta el reproductor de audio.
             </audio>
         </section>
@@ -134,8 +133,7 @@
             <div class="flex flex-col md:flex-row items-center gap-6">
                 <!-- Imagen del Programa -->
                 <div class="w-full md:w-1/3 rounded-xl overflow-hidden border-2 border-pink-500/50 shadow-lg">
-                    <!-- Reemplaza 'Radar.jpg' por el nombre exacto de tu archivo -->
-                    <img src="Radar.jpg" alt="Radar Universitario" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop'">
+                    <img src="Radar.png" alt="Radar Universitario" class="w-full h-auto object-cover" onerror="this.src='Radar.jpg'">
                 </div>
                 
                 <!-- Descripción del Programa -->
@@ -162,29 +160,7 @@
         <p class="text-gray-400">Transmitiendo música y cultura desde Jujuy, Argentina 🇦🇷</p>
     </footer>
 
-    <!-- SCRIPT DEL REPRODUCTOR -->
+    <!-- SCRIPT DEL REPRODUCTOR EN VIVO -->
     <script>
         const audio = document.getElementById('audioStream');
-        const playBtn = document.getElementById('playBtn');
-        const statusText = document.getElementById('statusText');
-        let isPlaying = false;
-
-        function togglePlay() {
-            if (!isPlaying) {
-                audio.play().then(() => {
-                    isPlaying = true;
-                    playBtn.textContent = "⏸";
-                    statusText.textContent = "Reproduciendo en vivo";
-                }).catch(e => {
-                    alert("El stream está inactivo temporalmente o cargando.");
-                });
-            } else {
-                audio.pause();
-                isPlaying = false;
-                playBtn.textContent = "▶";
-                statusText.textContent = "Pausado";
-            }
-        }
-    </script>
-</body>
-</html>
+        const playBtn = document.getElementById('
