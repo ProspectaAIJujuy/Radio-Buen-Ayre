@@ -23,12 +23,6 @@
         .neon-glow-lime {
             box-shadow: 0 0 25px rgba(132, 204, 22, 0.5);
         }
-        /* Estilo para integrar y oscurecer el reproductor embebido de Zeno */
-        .zeno-player-container {
-            filter: invert(1) hue-rotate(180deg) brightness(0.95);
-            border-radius: 12px;
-            overflow: hidden;
-        }
     </style>
 </head>
 <body class="bg-[#120802] min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white">
@@ -55,7 +49,7 @@
     <!-- CONTENIDO PRINCIPAL -->
     <main class="max-w-4xl w-full mx-auto px-4 py-8 flex-grow space-y-8">
 
-        <!-- REPRODUCTOR OFICIAL DE ZENO MEDIA INTEGRADO Y OSCURECIDO -->
+        <!-- REPRODUCTOR PERSONALIZADO DE NEÓN -->
         <section class="bg-[#1a0e06] border-2 border-orange-500/50 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
             <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-orange-600/10 rounded-full blur-2xl"></div>
             
@@ -63,15 +57,25 @@
                 🎵 Reproductor Oficial
             </h2>
 
-            <div class="bg-black/40 p-4 rounded-xl border border-orange-900/30 flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="text-sm text-orange-300 text-center md:text-left">
-                    <p class="font-semibold text-white text-base">Radio Buen Ayre en Directo</p>
-                    <p class="text-xs text-orange-300/70">Programación 24 hs junto a vos</p>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 bg-black/40 p-6 rounded-xl border border-orange-900/30">
+                <!-- Botón de Reproducción Estilizado -->
+                <div class="flex items-center gap-5">
+                    <button onclick="abrirReproductor()" class="w-20 h-20 bg-gradient-to-br from-lime-500 to-lime-600 hover:from-lime-400 hover:to-lime-500 text-black rounded-full flex items-center justify-center font-bold text-3xl shadow-lg transition-transform transform hover:scale-105 active:scale-95 neon-glow-lime cursor-pointer">
+                        ▶
+                    </button>
+                    <div>
+                        <div class="text-white font-semibold text-lg">Radio Buen Ayre En Vivo</div>
+                        <div class="text-xs text-orange-300/80">Hacé clic para escuchar la señal 24 hs</div>
+                    </div>
                 </div>
 
-                <!-- Reproductor con filtro oscuro integrado -->
-                <div class="w-full md:w-auto flex justify-center zeno-player-container shadow-lg">
-                    <iframe src="https://zeno.fm/player/radio-buen-ayre/" scrolling="no" frameborder="0" style="border: none; width: 100%; max-width: 280px; height: 90px;"></iframe>
+                <!-- Ecualizador visual estético -->
+                <div class="hidden md:flex items-center justify-center gap-1 h-12 px-4">
+                    <div class="w-1 bg-lime-500 rounded-full animate-pulse h-6"></div>
+                    <div class="w-1 bg-lime-500 rounded-full animate-pulse h-10 delay-75"></div>
+                    <div class="w-1 bg-lime-500 rounded-full animate-pulse h-4 delay-150"></div>
+                    <div class="w-1 bg-lime-500 rounded-full animate-pulse h-8 delay-200"></div>
+                    <div class="w-1 bg-lime-500 rounded-full animate-pulse h-12 delay-300"></div>
                 </div>
 
                 <!-- Enlace rápido a WhatsApp -->
@@ -148,5 +152,12 @@
         <p class="text-gray-400">Transmitiendo música y cultura desde Jujuy, Argentina 🇦🇷</p>
     </footer>
 
+    <!-- SCRIPT PARA ABRIR REPRODUCTOR LIMPIO -->
+    <script>
+        function abrirReproductor() {
+            // Abre el reproductor directo de Zeno en una pestaña limpia o popup optimizado
+            window.open('https://zeno.fm/player/radio-buen-ayre/', 'RadioBuenAyre', 'width=400,height=200,scrollbars=no,resizable=no');
+        }
+    </script>
 </body>
 </html>
