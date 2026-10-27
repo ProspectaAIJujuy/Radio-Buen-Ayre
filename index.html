@@ -4,38 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Buen Ayre - 24 Hs junto a vos</title>
-    <!-- Tailwind CSS para diseño moderno y responsivo -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Orbitron:wght@700&display=swap');
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #120802;
-            color: #f3f4f6;
-        }
-        .font-retro {
-            font-family: 'Orbitron', sans-serif;
-        }
-        .neon-glow-orange {
-            box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
-        }
-        .neon-glow-lime {
-            box-shadow: 0 0 25px rgba(132, 204, 22, 0.5);
-        }
+        body { font-family: 'Montserrat', sans-serif; background-color: #120802; color: #f3f4f6; }
+        .font-retro { font-family: 'Orbitron', sans-serif; }
+        .neon-glow-orange { box-shadow: 0 0 20px rgba(249, 115, 22, 0.4); }
+        .neon-glow-lime { box-shadow: 0 0 25px rgba(132, 204, 22, 0.5); }
     </style>
 </head>
 <body class="bg-[#120802] min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white">
 
-    <!-- HEADER / HERO SECTION CON TU BANNER -->
+    <!-- HEADER -->
     <header class="w-full bg-[#1c0c04] border-b border-orange-900/50 py-6 px-4 shadow-xl">
         <div class="max-w-4xl mx-auto flex flex-col items-center">
-            <!-- Imagen de Banner Oficial -->
             <div class="w-full max-w-xl mb-4 rounded-xl overflow-hidden neon-glow-orange border-2 border-orange-500/40">
-                <img src="banner_buenayre.png" alt="Radio Buen Ayre En Vivo 24 HS" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000&auto=format&fit=crop'">
+                <img src="banner_buenayre.png" alt="Radio Buen Ayre En Vivo 24 HS" class="w-full h-auto object-cover">
             </div>
-            
-            <!-- Estado En Vivo -->
             <div class="flex items-center gap-3 bg-black/60 px-4 py-2 rounded-full border border-lime-500/40 neon-glow-lime">
                 <span class="relative flex h-3 w-3">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -49,7 +34,7 @@
     <!-- CONTENIDO PRINCIPAL -->
     <main class="max-w-4xl w-full mx-auto px-4 py-8 flex-grow space-y-8">
 
-        <!-- REPRODUCTOR INTERNO DE UN SOLO CLIC -->
+        <!-- REPRODUCTOR UNICO BOTON -->
         <section class="bg-[#1a0e06] border-2 border-orange-500/50 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
             <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-orange-600/10 rounded-full blur-2xl"></div>
             
@@ -58,7 +43,6 @@
             </h2>
 
             <div class="flex flex-col md:flex-row items-center justify-between gap-6 bg-black/40 p-6 rounded-xl border border-orange-900/30">
-                <!-- Botón de Reproducción Principal -->
                 <div class="flex items-center gap-5">
                     <button id="playBtn" onclick="togglePlay()" class="w-20 h-20 bg-gradient-to-br from-lime-500 to-lime-600 hover:from-lime-400 hover:to-lime-500 text-black rounded-full flex items-center justify-center font-bold text-3xl shadow-lg transition-transform transform hover:scale-105 active:scale-95 neon-glow-lime cursor-pointer">
                         ▶
@@ -69,7 +53,6 @@
                     </div>
                 </div>
 
-                <!-- Ecualizador visual animado -->
                 <div class="hidden md:flex items-center justify-center gap-1 h-12 px-4" id="eqVisual" style="opacity: 0.3;">
                     <div class="w-1 bg-lime-500 rounded-full h-6"></div>
                     <div class="w-1 bg-lime-500 rounded-full h-10"></div>
@@ -78,74 +61,46 @@
                     <div class="w-1 bg-lime-500 rounded-full h-12"></div>
                 </div>
 
-                <!-- Enlace rápido a WhatsApp -->
                 <a href="https://wa.me/" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-3 rounded-xl text-sm transition-all shadow-md flex items-center gap-2">
                     💬 Pedí tu tema
                 </a>
             </div>
 
-            <!-- Etiqueta de audio oculta conectada directo al servidor -->
+            <!-- AUDIO INTERNO DIRECTO -->
             <audio id="audioStream" preload="none">
                 <source src="https://stream.zeno.fm/7ehxeaw5pa9uv" type="audio/mpeg">
-                Tu navegador no soporta audio en vivo.
             </audio>
         </section>
 
-        <!-- GRILLA DE SECCIONES: EFEMÉRIDE + BOLETÍN -->
+        <!-- SECCIONES INFORMATIVAS -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <!-- EFEMÉRIDE MUSICAL -->
             <article class="bg-[#1a0e06] border border-orange-500/30 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
                 <div>
                     <span class="text-xs font-bold text-orange-400 uppercase tracking-widest bg-orange-950/60 px-3 py-1 rounded-full border border-orange-800/40">Efeméride del Día</span>
                     <h3 class="text-lg font-bold text-white mt-3 mb-2">Historias de los 70, 80 y 90</h3>
-                    <p class="text-sm text-gray-300 leading-relaxed">
-                        Cada día recordamos los grandes hitos del rock, pop y los clásicos que marcaron época en la historia de la música universal.
-                    </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-orange-900/30 text-xs text-orange-400 flex items-center justify-between">
-                    <span>📅 Actualizado diariamente</span>
-                    <span class="font-bold">Radio Buen Ayre</span>
+                    <p class="text-sm text-gray-300 leading-relaxed">Cada día recordamos los grandes hitos del rock, pop y los clásicos que marcaron época.</p>
                 </div>
             </article>
 
-            <!-- BOLETIN INFORMATIVO -->
             <article class="bg-[#1a0e06] border border-orange-500/30 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
                 <div>
                     <span class="text-xs font-bold text-lime-400 uppercase tracking-widest bg-lime-950/60 px-3 py-1 rounded-full border border-lime-800/40">Noticias & Info</span>
                     <h3 class="text-lg font-bold text-white mt-3 mb-2">Boletín Informativo</h3>
-                    <p class="text-sm text-gray-300 leading-relaxed">
-                        Mantenete informado con nuestros resúmenes informativos automatizados emitidos puntualmente cada media hora (:00 y :30).
-                    </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-orange-900/30 text-xs text-lime-400 flex items-center justify-between">
-                    <span>⏱️ Cada 30 minutos</span>
-                    <span class="font-bold">Servicio Informativo</span>
+                    <p class="text-sm text-gray-300 leading-relaxed">Resúmenes informativos automatizados emitidos puntualmente cada media hora.</p>
                 </div>
             </article>
-
         </div>
 
-        <!-- SECCIÓN PROGRAMA: RADAR UNIVERSITARIO -->
+        <!-- RADAR UNIVERSITARIO -->
         <section class="bg-gradient-to-r from-[#1c0c04] to-[#241106] border-2 border-pink-500/30 rounded-2xl p-6 shadow-xl">
             <div class="flex flex-col md:flex-row items-center gap-6">
-                <!-- Imagen del Programa -->
                 <div class="w-full md:w-1/3 rounded-xl overflow-hidden border-2 border-pink-500/50 shadow-lg">
-                    <img src="Radar.png" alt="Radar Universitario" class="w-full h-auto object-cover" onerror="this.src='Radar.jpg'">
+                    <img src="Radar.png" alt="Radar Universitario" class="w-full h-auto object-cover">
                 </div>
-                
-                <!-- Descripción del Programa -->
                 <div class="w-full md:w-2/3 space-y-3 text-left">
-                    <span class="inline-block bg-pink-950/80 text-pink-300 border border-pink-600/50 text-xs font-bold px-3 py-1 rounded-full">
-                        Lunes a Viernes
-                    </span>
+                    <span class="inline-block bg-pink-950/80 text-pink-300 border border-pink-600/50 text-xs font-bold px-3 py-1 rounded-full">Lunes a Viernes</span>
                     <h3 class="text-2xl font-extrabold text-white font-retro tracking-wide">Radar Universitario</h3>
-                    <p class="text-sm text-gray-300 leading-relaxed">
-                        Toda la actualidad, novedades académicas, cultura y entrevistas imperdibles. Escuchanos en vivo a través de la señal de Radio Buen Ayre.
-                    </p>
-                    <div class="text-xs text-pink-400 font-semibold pt-2">
-                        🎧 Horario central: 8:00 AM
-                    </div>
+                    <p class="text-sm text-gray-300 leading-relaxed">Toda la actualidad, novedades académicas y cultura en vivo por Radio Buen Ayre.</p>
                 </div>
             </div>
         </section>
@@ -158,41 +113,29 @@
         <p class="text-gray-400">Transmitiendo música y cultura desde Jujuy, Argentina 🇦🇷</p>
     </footer>
 
-    <!-- SCRIPT DE REPRODUCCIÓN DIRECTA -->
+    <!-- SCRIPT LIMPIO DE REPRODUCCIÓN INTERNA -->
     <script>
         const audio = document.getElementById('audioStream');
         const playBtn = document.getElementById('playBtn');
         const statusText = document.getElementById('statusText');
-        const eqVisual = document.getElementById('eqVisual');
         let isPlaying = false;
 
         function togglePlay() {
             if (!isPlaying) {
                 statusText.textContent = "Conectando...";
-                audio.src = "https://stream.zeno.fm/7ehxeaw5pa9uv";
                 audio.play().then(() => {
                     isPlaying = true;
                     playBtn.textContent = "⏸";
                     statusText.textContent = "Reproduciendo en vivo";
-                    eqVisual.style.opacity = "1";
-                    // Añade animación al ecualizador
-                    Array.from(eqVisual.children).forEach((bar, index) => {
-                        bar.classList.add('animate-pulse');
-                    });
                 }).catch(e => {
-                    statusText.textContent = "Error al conectar";
-                    alert("No se pudo iniciar el audio automáticamente. Intentá hacer clic de nuevo.");
+                    statusText.textContent = "Pausado";
+                    alert("Hacé clic de nuevo para iniciar la transmisión.");
                 });
             } else {
                 audio.pause();
-                audio.src = ""; // Corta el flujo para liberar datos del servidor
                 isPlaying = false;
                 playBtn.textContent = "▶";
                 statusText.textContent = "Pausado";
-                eqVisual.style.opacity = "0.3";
-                Array.from(eqVisual.children).forEach((bar) => {
-                    bar.classList.remove('animate-pulse');
-                });
             }
         }
     </script>
